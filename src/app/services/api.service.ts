@@ -4,17 +4,25 @@ import { environment } from 'src/environments/environment';
 import { Product } from '../models/product';
 
 @Injectable({
-	providedIn: 'root'
+    providedIn: 'root'
 })
 export class ApiService {
 
-	constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-	async getProducts() {
-		return new Promise((resolve) => {
-			this.http.get<Product[]>(environment.apiUrl + 'products').subscribe((result) => {
-				resolve(result);
-			});
-		})
-	}
+    async getProducts() {
+        return new Promise((resolve) => {
+            this.http.get<Product[]>(environment.apiUrl + 'products').subscribe((result) => {
+                resolve(result);
+            });
+        })
+    }
+
+    async getCategories() {
+        return new Promise((resolve) => {
+            this.http.get(environment.apiUrl + 'products/categories').subscribe((result) => {
+                resolve(result);
+            });
+        })
+    }
 }
