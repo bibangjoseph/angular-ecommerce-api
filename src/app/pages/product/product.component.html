@@ -1,0 +1,48 @@
+<div class="row" *ngIf="loading">
+    <div class="col-12 text-center">
+        <div class="justify-content-center">
+            <div class="spinner-border spinner-border-sm text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>&nbsp;
+            Chargement...
+        </div>
+    </div>
+</div>
+<div *ngIf="!loading">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <img [src]="product.image" alt="">
+            </div>
+            <div class="col-1"></div>
+            <div class="col-7">
+                <ul class="list-group mb-3">
+                    <li class="list-group-item">
+                        <h6>Titre : </h6> {{ product.title }}
+                    </li>
+                    <li class="list-group-item">
+                        <h6>Catégorie : </h6> <span class="badge bg-primary"> {{ product.category }} </span>
+                    </li>
+                    <li class="list-group-item">
+                        <h6>Prix : </h6> {{ product.price | currency }}
+                    </li>
+                    <li class="list-group-item">
+                        <h6>Description : </h6> {{ product.description }}
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-6">
+                                <h6>Note : </h6>
+                                <i class="bi bi-star-fill text-warning"></i> {{ product.rating.rate }}
+                            </div>
+                            <div class="col-6">
+                                <h6>Nombre : </h6> {{ product.rating.count }}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <button class="btn btn-success"><i class="bi bi-cart"></i> Ajouter au panier</button>
+            </div>
+        </div>
+    </div>
+</div>

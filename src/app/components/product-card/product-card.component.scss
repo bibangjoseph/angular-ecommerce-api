@@ -8,3 +8,8 @@ img {
     border-left: none !important;
     border-right: none !important;
 }
+
+.card-product:hover {
+    cursor: pointer;
+    background-color: rgb(222, 217, 217);
+}

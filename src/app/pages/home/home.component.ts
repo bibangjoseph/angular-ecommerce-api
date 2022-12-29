@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
     searchText = '';
     p = 1;
     loading = true;
-    constructor(private apiService: ApiService) { }
+    constructor(private apiService: ApiService, private router: Router) { }
 
     ngOnInit() {
         this.getProducts();
@@ -26,19 +27,21 @@ export class HomeComponent implements OnInit {
         this.apiService.getProducts().then((result) => {
             this.products = result;
             this.loading = false;
-            console.log(result)
         })
     }
 
     async getCategories() {
         this.apiService.getCategories().then((result) => {
             this.categories = result;
-            console.log(result)
         })
     }
 
     async changeCategory(libelle: string) {
         this.categorySelected = libelle;
-        console.log(libelle)
+    }
+
+    async showDetail(product: number) {
+        console.log(product)
+        this.router.navigate(['/product/' + product])
     }
 }

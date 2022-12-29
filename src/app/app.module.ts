@@ -14,6 +14,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductComponent } from './pages/product/product.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         NavbarComponent,
         HomeComponent,
         MainLayoutComponent,
-        ProductCardComponent
+        ProductCardComponent,
+        ProductComponent
     ],
     imports: [
         BrowserModule,

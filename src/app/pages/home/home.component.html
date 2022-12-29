@@ -32,7 +32,8 @@
             <div class="row">
                 <app-product-card
                     *ngFor="let product of products | filter: categorySelected | filter: searchText | paginate: { itemsPerPage: 12, currentPage: p }"
-                    class="col-lg-4 col-xl-3 col-xxl-2 col-md-6 col-6 mb-3" [product]="product">
+                    class="col-lg-4 col-xl-3 col-xxl-2 col-md-6 col-6 mb-3" [product]="product"
+                    (click)="showDetail(product.id)">
                 </app-product-card>
             </div>
             <div class="row">

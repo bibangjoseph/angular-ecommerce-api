@@ -25,4 +25,12 @@ export class ApiService {
             });
         })
     }
+
+    async getProduct(product: string) {
+        return new Promise((resolve) => {
+            this.http.get<Product>(environment.apiUrl + 'products/' + product).subscribe((result) => {
+                resolve(result);
+            });
+        })
+    }
 }
